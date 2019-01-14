@@ -19,7 +19,7 @@ with open(file_name) as input_md5:
 	for items in input_md5:
 		params = {'apikey': '<--- Your API Key Here --->', 'resource': items.strip()}
 
-		headers = {"Accept-Encoding": "gzip, deflate", "User-Agent" : "gzip,  My Python requests library example client or username"}
+		headers = {"Accept-Encoding": "gzip, deflate", "User-Agent" : "Test user agent"}
 
 		#- Reference: https://www.virustotal.com/en/documentation/private-api/#get-report
 		response = requests.get('https://www.virustotal.com/vtapi/v2/file/report', params=params, headers=headers)
@@ -28,7 +28,7 @@ with open(file_name) as input_md5:
 		    if json_response:
 					detection_count=json_response.get('positives')
 					#- If a file downloaded in our environment is being detected by more than 5 AV engines then flag it.
-					if detection_count >= 3:
+					if detection_count >= 5:
 						print "Detected"
 						print input_md5
 						print items.strip(), ",", detection_count
