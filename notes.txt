@@ -1,0 +1,4 @@
+11/May/2020
+
+Concatenating strings where one of them could be None. 
+https://stackoverflow.com/questions/3752240/join-string-and-none-string-using-optional-delimiter
